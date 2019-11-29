@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #111;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+}
+
+#app {
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+#scene-view,
+#inventory-view,
+#log-view {
+  color: #eee;
+  border: 2px solid #eee;
+  margin-bottom: 15px;
+}
+
+#scene-view {
+  height: 550px;
+}
+
+#inventory-view, #log-view {
+  transition: height 0.2s;
+  height: 100px;
+}
+
+#log-view {
+  position: relative;
+}
+
+#log-content {
+  overflow-y: none;
+  position: absolute;
+  bottom: 0;
+  display: grid;
+  grid-template-rows: auto 40px;
+  background: red;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: height 0.2s;
+}
+
+#log-content:hover {
+  height: 215px;
+}
+
+#log-feed {
+  overflow-y: scroll;
+}
+
+#log-chatbox {
+  background: black;
+}
