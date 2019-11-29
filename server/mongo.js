@@ -1,14 +1,8 @@
 const mongoose = require('mongoose')
+const config = require('./utils/config')
+const Item = require('./models/items')
 
-const url ='mongodb+srv://egeuz:egeuz@vaults-database-kksxz.mongodb.net/vaults-database?retryWrites=true&w=majority'
-
-mongoose.connect(url, {useNewUrlParser: true})
-
-const itemSchema = new mongoose.Schema({
-  name: String,
-})
-
-const Item = mongoose.model('Item', itemSchema)
+mongoose.connect(config.MONGODB_URI, {useNewUrlParser: true})
 
 const item = new Item({
   name: 'jacket'
