@@ -22,7 +22,7 @@ mongoose.connect(config.MONGODB_URI, {useNewUrlParser: true})
 
 /**** INITIALIZE APP ****/
 app.use(cors())
-// app.use(express.static('build')) //activate for production
+app.use('/client', express.static('public')) //activate for production
 app.use(bodyParser.json())
 app.use('/', itemsRouter)
 

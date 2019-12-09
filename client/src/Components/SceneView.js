@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { SessionContext } from './App'
+import Scene from './Scene'
 
 function SceneView() {
+  const sessionContext = useContext(SessionContext)
+  const session = sessionContext.session
+
   return (
     <div id="scene-view">
-      scene view online
+      <Scene scene={session.currentScene} items={session.items}/>
     </div>
   )
 }
