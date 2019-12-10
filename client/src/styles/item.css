@@ -3,6 +3,7 @@
   width: 40px;
   height: 40px;
   cursor: grab;
+  z-index: 1;
 }
 
 .item:active {
@@ -11,7 +12,6 @@
 
 #inventory-view {
   width: 100%;
-  height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: row;
@@ -21,6 +21,7 @@
   position: relative;
   width: 40px;
   height: 40px;
+  margin-top: 5px;
   margin-right: 20px;
 }
 
@@ -30,4 +31,10 @@
 
 .item.inventory-item {
   background: blue;
+}
+
+.item.receptacle-item {
+  top: 50px;
+  left: 50px;
+  background: green;
 }

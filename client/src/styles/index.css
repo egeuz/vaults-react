@@ -1,8 +1,14 @@
 
+/**** FONTS ****/
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+
+/**** COMPONENT STYLES ****/
+@import './cursor-tag.css';
 @import './scene.css';
 @import './item.css';
+@import './terminal.css';
 
-
+/**** MAIN ****/
 * {
   box-sizing: border-box;
 }
@@ -11,6 +17,12 @@ body {
   background: #111;
   margin: 0;
   padding: 0;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+button, input {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
 }
 
 #root {
@@ -22,13 +34,12 @@ body {
 
 #app {
   width: 100%;
-  max-width: 550px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 #scene-view,
-#inventory-view,
-#log-view {
+#inventory-view {
   color: #eee;
   border: 2px solid #eee;
   margin-bottom: 15px;
@@ -38,36 +49,7 @@ body {
   height: 550px;
 }
 
-#inventory-view, #log-view {
-  transition: height 0.2s;
+#inventory-view {
+
   height: 100px;
-}
-
-#log-view {
-  position: relative;
-}
-
-#log-content {
-  overflow-y: none;
-  position: absolute;
-  bottom: 0;
-  display: grid;
-  grid-template-rows: auto 40px;
-  background: red;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  transition: height 0.2s;
-}
-
-#log-content:hover {
-  height: 215px;
-}
-
-#log-feed {
-  overflow-y: scroll;
-}
-
-#log-chatbox {
-  background: black;
 }

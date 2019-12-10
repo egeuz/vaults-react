@@ -1,14 +1,19 @@
 import React, { useContext } from 'react'
 import { SessionContext } from './App'
 import Scene from './Scene'
+import TerminalView from './TerminalView'
 
 function SceneView() {
-  const sessionContext = useContext(SessionContext)
-  const session = sessionContext.session
+  const { session } = useContext(SessionContext)
 
   return (
     <div id="scene-view">
-      <Scene scene={session.currentScene} items={session.items}/>
+      {
+        session.terminalOpen ? 
+        <TerminalView /> :
+        <Scene items={session.items} />
+      }
+
     </div>
   )
 }

@@ -1,0 +1,13 @@
+#cursor-tag {
+  width: 120px;
+  height: 50px;
+  background: white;
+  box-shadow: 4px 4px #111;
+  position: fixed;
+  z-index: 1;
+}
+
+#cursor-tag p {
+  padding: 0 5px;
+  color: #111;
+}

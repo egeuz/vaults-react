@@ -1,0 +1,23 @@
+#terminal {
+  background: blue;
+  width: 100px;
+  height: 150px;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  /* z-index: -1; */
+  cursor: pointer;
+}
+
+#terminal-view {
+  background: red;
+  height: 550px;
+}
+
+#receptacle {
+  position: relative;
+  background: black;
+  width: 80%;
+  margin: 0 auto;
+  height: 100px;
+}

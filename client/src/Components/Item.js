@@ -1,20 +1,17 @@
 import React from 'react'
 import useDraggable from '../Hooks/useDraggable'
 
-
-function Item({name, className}) {
-  const [dragState, dragStart] = useDraggable(className)
-
+function Item({item, name, className}) {
+  const [dragState, dragStart] = useDraggable(item, className)
   return (
     <div 
-      className={`item ${className}`}
+      className={`item ${name} ${className}`}
       onMouseDown={dragStart}
       style={{
         top: `${dragState.translateY}px`,
         left: `${dragState.translateX}px`,
       }}
     >
-      <p>{name}</p>
     </div>
   )
 }

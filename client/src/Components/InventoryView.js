@@ -6,8 +6,7 @@ import Item from './Item'
 
 function InventoryView() {
 
-  const sessionContext = useContext(SessionContext)
-  const session = sessionContext.session
+  const {session} = useContext(SessionContext)
 
   return (
 
@@ -15,7 +14,7 @@ function InventoryView() {
       {session.inventory.map(item =>
         (
           <div className="item-container" key={item.id + "container"}>
-            <Item key={item.id} name={item.name} className={"inventory-item"} />
+            <Item item={item} key={item.id} name={item.name} className={"inventory-item"} />
           </div>
         )
       )}
