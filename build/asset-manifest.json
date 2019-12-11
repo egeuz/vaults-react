@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.4a3d0663.chunk.css",
+    "main.js": "/static/js/main.41f0b95f.chunk.js",
+    "main.js.map": "/static/js/main.41f0b95f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.b240f91f.js",
+    "runtime-main.js.map": "/static/js/runtime-main.b240f91f.js.map",
+    "static/js/2.0698ffbf.chunk.js": "/static/js/2.0698ffbf.chunk.js",
+    "static/js/2.0698ffbf.chunk.js.map": "/static/js/2.0698ffbf.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f78c8708bd9fc6eab1e43b54765291b6.js": "/precache-manifest.f78c8708bd9fc6eab1e43b54765291b6.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.4a3d0663.chunk.css.map": "/static/css/main.4a3d0663.chunk.css.map",
+    "static/media/bed.png": "/static/media/bed.a511797a.png",
+    "static/media/chair.png": "/static/media/chair.349d8768.png",
+    "static/media/clock.png": "/static/media/clock.b692e9fe.png",
+    "static/media/couch.png": "/static/media/couch.ced5912a.png",
+    "static/media/doll.png": "/static/media/doll.1a80620a.png",
+    "static/media/flowers.png": "/static/media/flowers.d324ab9c.png",
+    "static/media/piano.png": "/static/media/piano.686a277b.png",
+    "static/media/purse.png": "/static/media/purse.be15d9de.png",
+    "static/media/index.css": "/static/media/terminal.9dc3eac8.png",
+    "static/media/table.png": "/static/media/table.eda3f59a.png",
+    "static/media/television.png": "/static/media/television.401bc5db.png",
+    "static/media/toilet.png": "/static/media/toilet.0452652f.png",
+    "static/media/vase.png": "/static/media/vase.aa4603e2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b240f91f.js",
+    "static/js/2.0698ffbf.chunk.js",
+    "static/css/main.4a3d0663.chunk.css",
+    "static/js/main.41f0b95f.chunk.js"
+  ]
+}
