@@ -10,8 +10,8 @@ function useDraggable(item, className) {
     item: {},
     originalX: 0,
     originalY: 0,
-    translateX: className === 'scene-item' ? item.x : 0,
-    translateY: className === 'scene-item' ? item.y : 0,
+    translateX: getStartPos().x,
+    translateY: getStartPos().y,
     lastTranslateX: 0,
     lastTranslateY: 0
   }
@@ -30,6 +30,7 @@ function useDraggable(item, className) {
         }
 
       case "DRAG_MOVE":
+          console.log(action.pageX, action.pageY)
         return {
           ...state,
           translateX: state.item.offsetLeft - (state.lastTranslateX - action.clientX),
@@ -67,8 +68,8 @@ function useDraggable(item, className) {
     dispatch({ type: "DRAG_START", clientX, clientY, target })
   }
 
-  const dragMove = ({ clientX, clientY, target }) => {
-    dispatch({ type: "DRAG_MOVE", clientX, clientY, target })
+  const dragMove = ({ pageX, pageY, clientX, clientY, target }) => {
+    dispatch({ type: "DRAG_MOVE", pageX, pageY, clientX, clientY, target })
   }
 
   const dragEnd = (event) => {
@@ -84,7 +85,7 @@ function useDraggable(item, className) {
       }
       if (itemOrigin === area) {
         dispatch({ type: "DRAG_END" })
-        if(area === 'scene') {
+        if (area === 'scene') {
           sessionDispatch({
             type: 'UPDATE_ITEM_LOCATION',
             item,
@@ -96,7 +97,7 @@ function useDraggable(item, className) {
 
       if (itemOrigin !== area) {
         if (itemOrigin === 'inventory' && area === 'scene') {
-          sessionDispatch({ 
+          sessionDispatch({
             type: 'INVENTORY_TO_SCENE',
             item,
             x: event.pageX - document.getElementById('scene').offsetLeft,
@@ -110,6 +111,7 @@ function useDraggable(item, className) {
           sessionDispatch({ type: 'RECEPTACLE_TO_INVENTORY', item })
         }
         if (itemOrigin === 'inventory' && area === 'receptacle') {
+          dispatch({ type: 'DRAG_INTO_RECEPTACLE' })
           sessionDispatch({ type: 'INVENTORY_TO_RECEPTACLE', item })
         }
       }
@@ -136,9 +138,15 @@ function useDraggable(item, className) {
     if (isInBounds(pageX, pageY, scene)) return "scene"
     return false
   }
-  
+
   function isInBounds(x, y, area) {
     return (x > area.offsetLeft && x < area.offsetLeft + area.offsetWidth) && (y > area.offsetTop && y < area.offsetTop + area.offsetHeight)
+  }
+
+  function getStartPos() {
+    if(className === "scene-item") return {x: item.x, y: item.y}
+    if(className === "receptacle-item") return {x: 425, y: 0}
+    if(className === "inventory-item") return {x: 0, y: 0}
   }
 }
 

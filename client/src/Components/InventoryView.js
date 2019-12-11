@@ -11,10 +11,10 @@ function InventoryView() {
   return (
 
     <div id="inventory-view">
-      {session.inventory.map(item =>
+      {session.inventory.map((item, index) =>
         (
           <div className="item-container" key={item.id + "container"}>
-            <Item item={item} key={item.id} name={item.name} className={"inventory-item"} />
+            <Item item={item} key={`${item.id}${index}`} name={item.name} className={"inventory-item"} />
           </div>
         )
       )}

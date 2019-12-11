@@ -16,6 +16,19 @@ itemsRouter.get('/items', (req, res) => {
   })
 })
 
+itemsRouter.put('/:id', (req, res, next) => {
+  const {item, memory} = req.body
+  const newItem = {
+    ...item,
+    memories: [...item.memories, memory]
+  }
+  Item.findByIdAndUpdate(req.params.id, newItem, {new: true})
+  .then(updatedNote => {
+    res.send(updatedNote.toJSON())
+  })
+  .catch(error => next(error))
+})
+
 //access specific item
 itemsRouter.get('/:id', (req, res) => {
   Item.findById(req.params.id)

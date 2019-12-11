@@ -1,23 +1,94 @@
 #terminal {
-  background: blue;
-  width: 100px;
-  height: 150px;
+  background-image: url("../assets/interactables/terminal.png");
+  background-size: cover;
+  width: 200px;
+  height: 200px;
   position: absolute;
-  top: calc(50% - 50px);
-  left: calc(50% - 50px);
-  /* z-index: -1; */
+  top: calc(50% - 100px);
+  left: calc(50% - 100px);
   cursor: pointer;
 }
 
 #terminal-view {
-  background: red;
-  height: 550px;
+  position: relative;
+  height: 100%;
+  background-image: url("../assets/terminal.png");
+  background-size: cover;
+  padding: 50px;
+}
+
+#back-button {
+  position: absolute;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  max-width: 1000px;
+  background: rgba(11, 11, 11, 0.1);
+  color: #fff;
+  font-weight: 800;
+  height: 44px;
+  transition: height 0.2s, background 0.2s;
+}
+
+#back-button:hover {
+  height: 64px;
+  background: rgba(11, 11, 11, 0.3);
+}
+
+#screen {
+  background: #111;
+  width: 80%;
+  max-width: 750px;
+  height: 295px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  font-size: 0.8rem;
+  display: grid;
+  grid-template-rows: 225px 65px;
+  grid-gap: 10px 0;
+}
+
+#log {
+  /* background: blue; */
+  height: 225px;
+  color: #e1e8e1;
+  color: #cde9cd;
+  overflow: scroll;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #cde9cd;
+}
+
+#screen form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 25px auto;
+  grid-template-rows: auto;
+  align-items: start;
+}
+
+#screen form p {
+  color: #cde9cd;
+  font-size: 0.8rem;
+  margin-top: 0px;
+
+}
+
+#screen input {
+  display: block;
+  width: 100%;
+  background: inherit;
+  border: none;
+  outline: none;
+  color: #cde9cd;
+  font-size: 0.8rem;
 }
 
 #receptacle {
   position: relative;
-  background: black;
-  width: 80%;
-  margin: 0 auto;
-  height: 100px;
+  width: 100%;
+  margin: 57px auto;
+  height: 75px;
 }

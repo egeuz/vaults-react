@@ -1,7 +1,6 @@
 .item {
+  display: block;
   position: absolute;
-  width: 40px;
-  height: 40px;
   cursor: grab;
   z-index: 1;
 }
@@ -19,22 +18,21 @@
 
 .item-container {
   position: relative;
-  width: 40px;
-  height: 40px;
-  margin-top: 5px;
+  width: 60px;
+  height: 60px;
+
   margin-right: 20px;
 }
 
 .item.scene-item {
-  background: red;
+  max-height: 150px;
 }
 
 .item.inventory-item {
-  background: blue;
+  width: auto;
+  height: 100%;
 }
 
 .item.receptacle-item {
-  top: 50px;
-  left: 50px;
-  background: green;
+
 }

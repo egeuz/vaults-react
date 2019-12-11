@@ -15,7 +15,7 @@ function TerminalView() {
     <div id="terminal-view">
       <Screen />
       <Receptacle />
-      <button onClick={closeTerminalView}>Back</button>
+      <button id="back-button" onClick={closeTerminalView}>GO BACK</button>
     </div>
   )
 }

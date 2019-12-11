@@ -3,6 +3,7 @@ import React, { useEffect, useReducer } from 'react'
 import CursorTag from './CursorTag'
 import SceneView from './SceneView'
 import InventoryView from './InventoryView'
+
 /**** RECEIVE DATA FROM SERVER ****/
 import ItemCatalog from '../services/items'
 
@@ -15,7 +16,10 @@ const initialSessionState = {
   items: [],
   inventory: [],
   receptacle: {},
-  terminalOpen: false
+  selectedItem: {},
+  terminalOpen: false,
+  playerName: "",
+  event: ''
 }
 
 const sessionReducer = (state, action) => {
@@ -24,8 +28,7 @@ const sessionReducer = (state, action) => {
     case "LOAD_SESSION_DATA":
       return {
         ...state,
-        itemCatalog: action.data,
-        items: action.data,
+        itemCatalog: action.data
       }
 
     case 'OPEN_TERMINAL':
@@ -34,10 +37,34 @@ const sessionReducer = (state, action) => {
     case 'CLOSE_TERMINAL':
       return { ...state, terminalOpen: false }
 
+    case 'SET_NAME':
+      return {
+        ...state,
+        playerName: action.name,
+        event: 'intro-2'
+      }
+
+    case 'SELECT_ITEM':
+      return {
+        ...state,
+        selectedItem: action.item,
+        event: 'item-select-success'
+      }
+
     case 'GENERATE_ITEM':
       return {
-        ...state, receptacle: action.item
+        ...state, 
+        receptacle: action.item,
+        event: 'item-get-success'
       }
+    
+    case 'DESTROY_ITEM':
+      return {
+        ...state,
+        receptacle: {},
+        event: 'item-destroy-success'
+      }
+
     case 'UPDATE_ITEM_LOCATION':
       const updatedItem = { ...action.item, x: action.x, y: action.y }
       const newItems = [...state.items.filter(item => item.id !== action.item.id), updatedItem]
@@ -63,14 +90,16 @@ const sessionReducer = (state, action) => {
       return {
         ...state,
         inventory: state.inventory.filter(item => item.id !== action.item.id),
-        receptacle: action.item
+        receptacle: action.item,
+        event: 'inventory-to-receptacle'
       }
 
     case "RECEPTACLE_TO_INVENTORY":
       return {
         ...state,
         inventory: [...state.inventory, action.item],
-        receptacle: {}
+        receptacle: {},
+        event: 'receptacle-to-inventory'
       }
     default:
       return state
@@ -88,8 +117,9 @@ function App() {
           data: response.data
         })
       })
-    //post data on dismount
   }, [])
+
+
 
   return (
     <SessionContext.Provider value={{ session: session, dispatch: dispatch }}>
